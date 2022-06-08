@@ -1,7 +1,5 @@
 # Dies ist der Quellcode für mein EmbeddedSystems Projekt
 
-Infos zum System finden sich [hier](https://gameucation.eu).
-
 ## Technik
 
 Das System besteht aus mehrere Schichten bzw. Komponenten:
