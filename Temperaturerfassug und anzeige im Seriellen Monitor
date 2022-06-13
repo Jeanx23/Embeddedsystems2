@@ -3,34 +3,30 @@
 
 #define ONE_WIRE_BUS 2
 
-OneWire oneWire(ONE_WIRE_BUS);
+OneWire wirebus(ONE_WIRE_BUS);
 
-DallasTemperature sensors(&oneWire);
+DallasTemperature sensors(&wirebus);
 
 void setup(void)
 {
   Serial.begin(9600);
-  Serial.println("Dallas Temperature IC Control Library Demo");
   sensors.begin();
 }
 
 void loop(void)
 {
-  Serial.print("Requesting temperatures...");
-  sensors.requestTemperatures();
-  Serial.println("DONE");
-
-  float tempC = sensors.getTempCByIndex(0);
-  if(tempC != DEVICE_DISCONNECTED_C)
-  {
-    Serial.print("Temperatur for the device 1 (index 0) is: ");
-    Serial.println(tempC);
+  Serial.println("lese Daten ein");
   
+  sensors.requestTemperatures();
+
+  float gradCelsius = sensors.getTempCByIndex(0);
+  if(gradCelsius != DEVICE_DISCONNECTED_C)
+  {
+    Serial.print("Die Zimmertemperatur beträgt: ");
+    Serial.println(gradCelsius);
   }
   else
   {
-    Serial.println("Error: Could not read temperature data");
-  }
-  
-  
+    Serial.println("Ein Fehler ist aufgetreten...");
+  }   
 }
