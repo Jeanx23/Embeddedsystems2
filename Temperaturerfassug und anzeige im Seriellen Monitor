@@ -4,29 +4,62 @@
 #define ONE_WIRE_BUS 2
 
 OneWire wirebus(ONE_WIRE_BUS);
-
 DallasTemperature sensors(&wirebus);
+
+//Raucherfassung
+int led_red = 11;
+int led_green = 12;
+int smoke = A5;
+int max_value = 300; //Grenzwert ab dem zu viel Rauch im Raum ist
+//
 
 void setup(void)
 {
+  //Raucherfassung
+  pinMode(led_red, OUTPUT);
+  pinMode(led_green, OUTPUT);
+  pinMode(smoke, INPUT);
+  //
+  
   Serial.begin(9600);
+  
+  //Temperaturerfassung
   sensors.begin();
+  //
 }
 
 void loop(void)
 {
+  //Temperaturerfassung
   Serial.println("lese Daten ein");
-  
   sensors.requestTemperatures();
+  float grad_celsius = sensors.getTempCByIndex(0);
+  //
+  
+  //Raucherfassung
+  int smoke_value = analogRead(smoke);
+  
+  if(smoke_value > max_value)
+  {
+    digitalWrite(led_red, HIGH);
+    digitalWrite(led_green, LOW);
+  }
+  else
+  {
+    digitalWrite(led_red, LOW);
+    digitalWrite(led_green, HIGH);
+  }
+  //
 
-  float gradCelsius = sensors.getTempCByIndex(0);
-  if(gradCelsius != DEVICE_DISCONNECTED_C)
+  //Temperaturerfassung
+  if(grad_celsius != DEVICE_DISCONNECTED_C)
   {
     Serial.print("Die Zimmertemperatur beträgt: ");
-    Serial.println(gradCelsius);
+    Serial.println(grad_celsius);
   }
   else
   {
     Serial.println("Ein Fehler ist aufgetreten...");
-  }   
+  }
+  //
 }
