@@ -11,6 +11,6 @@ Das System besteht aus mehrere Komponenten:
     * Es gibt eine grüne LED, welche leuchtet wenn kein Gas/Rauch im Raum ist.
     
 * der Programmcode für den Arduino
-    -Das Programm wertet die Daten des Temperatursensor aus und gibt den aktuellen Temperaturwert auf dem seriellen Monitor aus.
-    -Das Programm wertet den Analogwert des Gassensors aus und schaltet eine von den beiden Dioden.
-    -Der Wert ab wann die Rote LED leuchten soll kann im Programmcode unter max_value angepasst werden.
+    * Das Programm wertet die Daten des Temperatursensor aus und gibt den aktuellen Temperaturwert auf dem seriellen Monitor aus.
+    * Das Programm wertet den Analogwert des Gassensors aus und schaltet eine von den beiden Dioden.
+    * Der Wert ab wann die Rote LED leuchten soll kann im Programmcode unter max_value angepasst werden.
