@@ -4,7 +4,7 @@
 
 Das System besteht aus mehrere Komponenten:
 
-* der technische Aufbau
+##der technische Aufbau
     -Das Projekt hat einen Temperatursensor der die Raumtemperatur misst und die Daten an den Microcontroller weitergibt.
     -Außerdem ist ein Gassensor vorhanden, der den aktuellen Gaswert in der Zimmerluft  misst und diesen auch an den Mikrocontroller weitergibt.
     -Es gibt eine rote LED, welche leuchtet wenn Gas/Rauch im Raum ist.
