@@ -1,4 +1,4 @@
-# Dies ist der Quellcode für mein EmbeddedSystems Projekt
+# Dies ist der Quellcode für mein EmbeddedSystems Projekt: Intelligent Room
 
 ## Technik
 
